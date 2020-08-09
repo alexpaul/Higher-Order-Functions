@@ -67,3 +67,17 @@ let transformedValues = values.compactMap { Bool($0) }
 
 print(transformedValues) // [true, false, false]
 ```
+
+## `flatMap`
+
+`flatMap` concatenates the elements of a given sequence 
+
+```swift 
+let values = [1, 2, 3, 4]
+
+let mappedValue = values.map { Array(repeating: $0, count: $0) }
+print(mappedValue) // [[1], [2, 2], [3, 3, 3], [4, 4, 4, 4]]
+
+let concatenatedValues = values.flatMap { Array(repeating: $0, count: $0) }
+print(concatenatedValues) // [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
+```
