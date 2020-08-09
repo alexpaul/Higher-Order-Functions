@@ -72,6 +72,8 @@ print(transformedValues) // [true, false, false]
 
 `flatMap` concatenates the elements of a given sequence 
 
+#### Example 1
+
 ```swift 
 let values = [1, 2, 3, 4]
 
@@ -82,4 +84,20 @@ print(mappedValue) // [[1], [2, 2], [3, 3, 3], [4, 4, 4, 4]]
 // `compactMap` will flatten the transformed results into one sequence by concatenated each result
 let concatenatedValues = values.flatMap { Array(repeating: $0, count: $0) }
 print(concatenatedValues) // [1, 2, 2, 3, 3, 3, 4, 4, 4, 4] 
+```
+
+#### Example 2 
+
+```swift 
+let values = [1, 2, 3, 4]
+
+let mappedValues = values.map { int -> [Int] in
+  return [int * int]
+}
+print(mappedValues) // [[1], [4], [9], [16]]
+
+let flattenedValues = values.flatMap { int -> [Int] in
+  return [int * int]
+}
+print(flattenedValues) // [1, 4, 9, 16]
 ```
