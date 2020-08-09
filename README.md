@@ -9,6 +9,7 @@ A higher order function is a function that takes another function as an argument
 * compactMap 
 * filter
 * sorted 
+* flatMap
 
 ## `map`
 
