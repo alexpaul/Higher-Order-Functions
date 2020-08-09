@@ -78,6 +78,8 @@ let values = [1, 2, 3, 4]
 let mappedValue = values.map { Array(repeating: $0, count: $0) }
 print(mappedValue) // [[1], [2, 2], [3, 3, 3], [4, 4, 4, 4]]
 
+// if we do not want an array of arrays like `map` gave us then we use `compactMap` as below
+// `compactMap` will flatten the transformed results into one sequence by concatenated each result
 let concatenatedValues = values.flatMap { Array(repeating: $0, count: $0) }
-print(concatenatedValues) // [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
+print(concatenatedValues) // [1, 2, 2, 3, 3, 3, 4, 4, 4, 4] 
 ```
