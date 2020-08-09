@@ -2,6 +2,12 @@
 
 A higher order function is a function that takes another function as an argument or returns a function. 
 
+## Sequence and Collection Protocols 
+
+A sequence is a list of values that you can step through one at a time. The most common way to iterate over the elements of a sequence is to use a for-in loop:
+
+Collections are used extensively throughout the standard library. When you use arrays, dictionaries, and other collections, you benefit from the operations that the Collection protocol declares and implements. In addition to the operations that collections inherit from the Sequence protocol, you gain access to methods that depend on accessing an element at a specific position in a collection.
+
 ## Swift built-in higher order functions 
 
 * map 
