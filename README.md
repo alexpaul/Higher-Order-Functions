@@ -101,3 +101,5 @@ let flattenedValues = values.flatMap { int -> [Int] in
 }
 print(flattenedValues) // [1, 4, 9, 16]
 ```
+
+Above instead of the final result of the transformation being an array of arrays, `flapMap` will concatenate the values of this operations and return a single sequence.
