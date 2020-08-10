@@ -29,6 +29,28 @@ let transformedValues = values.map { return $0 % 2 == 0 } // (Int) -> [T]
 print(transformedValues) // [false, true, false, true, false]
 ```
 
+#### Writing the `map` funciton 
+
+```swift
+extension Sequence {
+  func myMap<T>(closure: (Self.Element) -> (T)) -> [T] {
+    var resuls = [T]()
+    for value in self {
+      let result = closure(value)
+      resuls.append(result)
+    }
+    return resuls
+  }
+}
+
+let values = [1, 2, 3, 4]
+
+let transformedValues = values.myMap {  $0 * $0 }
+
+print(transformedValues)
+// [1, 4, 9, 16]
+```
+
 ## `reduce`
 
 `reduce` takes an initial value and a closure that combines the previous result and current value to return a combined value. 
