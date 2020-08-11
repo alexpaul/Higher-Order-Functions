@@ -77,6 +77,33 @@ print(transformedValues)
 */
 ```
 
+#### Writing the `reduce` function 
+
+```swift 
+let values = [1, 2, 3, 4]
+
+// (initialResult, closure: (previousResult, currentResult) -> (result))
+// (T, closure: (T, T) -> (T)) -> [T]
+
+
+func myReduce(_ arr: [Int], initialResult: Int, _ closure: (Int, Int) -> (Int)) -> Int {
+    
+  var previousResult = initialResult
+  
+  for num in arr {
+    let result = closure(previousResult, num)
+    previousResult = result
+  }
+  
+  return previousResult
+  
+}
+
+let result = myReduce(values, initialResult: 0, +)
+
+print(result) // 10
+```
+
 
 ## `compactMap`
 
