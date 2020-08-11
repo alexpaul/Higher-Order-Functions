@@ -80,24 +80,24 @@ print(transformedValues)
 #### Writing the `reduce` function 
 
 ```swift 
-let values = [1, 2, 3, 4]
-
 // (initialResult, closure: (previousResult, currentResult) -> (result))
 // (T, closure: (T, T) -> (T)) -> [T]
 
-func myReduce(_ arr: [Int], initialResult: Int, _ closure: (Int, Int) -> (Int)) -> Int {
-  var previousResult = initialResult
-  for num in arr {
-    let result = closure(previousResult, num)
-    previousResult = result
+extension Sequence {
+  func myReduce<T: BinaryInteger>(_ initialResult: T, _ closure: (T, T) -> (T)) -> T {
+    var previousResult = initialResult
+    for element in self {
+      previousResult = closure(previousResult, element as! T)
+    }
+    return previousResult
   }
-  return previousResult
 }
 
-let result = myReduce(values, initialResult: 0, +)
-print(result) // 10
-```
+let values = [1, 2, 3, 4]
+let result = values.myReduce(1, *)
 
+print(result) // 24
+```
 
 ## `compactMap`
 
