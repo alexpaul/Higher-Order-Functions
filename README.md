@@ -111,6 +111,29 @@ let transformedValues = values.compactMap { Bool($0) }
 print(transformedValues) // [true, false, false]
 ```
 
+#### Writing the `compactMap` function 
+
+```swift 
+// (T) -> ElementOfResult? => [T]()
+
+extension Sequence {
+  func myCompactMap<T>(closure: (Self.Element) -> (T?)) -> [T] {
+    var results = [T]()
+    for element in self {
+      if let result = closure(element) {
+        results.append(result)
+      }
+    }
+    return results
+  }
+}
+
+let values = ["1", "three", "42", "2020", "9", "zero"]
+
+let nonNilValues = values.myCompactMap { Int($0) }
+print(nonNilValues) // [1, 42, 2020, 9]
+```
+
 ## `flatMap`
 
 `flatMap` concatenates the elements of a given sequence 
