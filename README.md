@@ -134,6 +134,18 @@ let nonNilValues = values.myCompactMap { Int($0) }
 print(nonNilValues) // [1, 42, 2020, 9]
 ```
 
+## `filter`
+
+`filter` takes a closure that operates as a predicate on the elements of a sequence and returns the results of the query. 
+
+```swift 
+let values = [1, 2, 3, 4]
+
+let results = values.filter { $0 > 3 }
+
+print(results) // [4]
+```
+
 ## `flatMap`
 
 `flatMap` concatenates the elements of a given sequence 
