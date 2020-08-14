@@ -146,10 +146,25 @@ let results = values.filter { $0 > 3 }
 print(results) // [4]
 ```
 
-#### Writing the `` function 
+#### Writing the `filter` function 
 
 ```swift 
+extension Sequence {
+  func myFilter(closure: (Self.Element) -> (Bool)) -> [Self.Element] {
+    var results = [Self.Element]()
+    for element in self {
+      if closure(element) {
+        results.append(element)
+      }
+    }
+    return results
+  }
+}
+let values = [1, 2, 3, 4]
 
+let filteredResults = values.myFilter { $0 % 2 == 1 }
+
+print(filteredResults) // [1, 3]
 ```
 
 ## `flatMap`
