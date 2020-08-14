@@ -146,6 +146,12 @@ let results = values.filter { $0 > 3 }
 print(results) // [4]
 ```
 
+#### Writing the `` function 
+
+```swift 
+
+```
+
 ## `flatMap`
 
 `flatMap` concatenates the elements of a given sequence 
