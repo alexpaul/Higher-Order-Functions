@@ -167,6 +167,8 @@ let filteredResults = values.myFilter { $0 % 2 == 1 }
 print(filteredResults) // [1, 3]
 ```
 
+## `sorted`
+
 ## `flatMap`
 
 `flatMap` concatenates the elements of a given sequence 
