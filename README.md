@@ -171,6 +171,16 @@ print(filteredResults) // [1, 3]
 
 `sorted` compares and sorts elemenents a sequence using a given predicate. 
 
+```swift 
+let values = [3, 1, 4, 2]
+
+let sortedResults = values.sorted { (value1, value2) -> Bool in
+  return value1 < value2
+}
+
+print(sortedResults) // [1, 2, 3, 4]
+```
+
 ## `flatMap`
 
 `flatMap` concatenates the elements of a given sequence 
