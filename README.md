@@ -169,6 +169,8 @@ print(filteredResults) // [1, 3]
 
 ## `sorted`
 
+`sorted` compares and sorts elemenents a sequence using a given predicate. 
+
 ## `flatMap`
 
 `flatMap` concatenates the elements of a given sequence 
