@@ -84,10 +84,10 @@ print(transformedValues)
 // (T, closure: (T, T) -> (T)) -> [T]
 
 extension Sequence {
-  func myReduce<T: BinaryInteger>(_ initialResult: T, _ closure: (T, T) -> (T)) -> T {
+  func myReduce(_ initialResult: Self.Element, _ closure: (Self.Element, Self.Element) -> (Self.Element)) -> Self.Element {
     var previousResult = initialResult
     for element in self {
-      previousResult = closure(previousResult, element as! T)
+      previousResult = closure(previousResult, element)
     }
     return previousResult
   }
