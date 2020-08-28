@@ -216,3 +216,27 @@ print(flattenedValues) // [1, 4, 9, 16]
 ```
 
 Above instead of the final result of the transformation being an array of arrays, `flapMap` will concatenate the values of this operations and return a single sequence.
+
+## CompatMap, CompactMapValues and FlatMap runtimes `O(m + n)`
+
+```swift 
+let gradesDict = ["michelle": "90", "paul": "eighty", "cindy": "96"]
+let gradesMapValues = gradesDict.mapValues { Int($0) }
+let gradesCompactMapValues = gradesDict.compactMapValues { Int($0) }
+
+
+
+let gradesArr = ["87", "ninety", "90"]
+
+let gradesMap = gradesArr.map { Int($0) }
+print(gradesMap)
+
+let gradesCompactMap = gradesArr.compactMap { Int($0) }
+print(gradesCompactMap)
+
+
+let matrix = [[1, 2, 3, 4], [6, 9, 23]]
+let flattenArr = matrix.flatMap { $0 }
+
+// compactMap, compactMapValues, flatMap have runtimes of O(m + n), where n is the original sequence and m is the result
+```
