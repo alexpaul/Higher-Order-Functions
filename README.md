@@ -10,6 +10,7 @@ A higher order function is a function that takes another function as an argument
 * filter
 * sorted 
 * flatMap
+* compactMapValues
 
 ## `map`
 
@@ -124,7 +125,9 @@ print(flattenedCites) // ["Lima", "Sao Paulo", "New York", "Lima", "London", "Ne
 
 Above instead of the final result of the transformation being an array of arrays, `flapMap` will concatenate the values of this operations and return a single sequence.
 
-## CompactMapValues
+## `compactMapValues`
+
+`compactMapValues` is very similar to `compactMap` on an array. It returns non-nil `(key, value)` pairs from a given dictionary. 
 
 ```swift 
 let gradesDict = ["michelle": "90", "paul": "eighty", "cindy": "96"]
