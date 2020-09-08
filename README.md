@@ -148,12 +148,47 @@ Write a function called `multiples(of:in)` that takes in an array of Ints and re
 _Sample Input: (3, [1, 2, 3, 4, 6, 8, 9, 3, 12, 11])_   
 _Sample Output: [3, 6, 9, 3, 12]_  
 
+<details>
+  <summary>Solution</summary> 
+  
+```swift 
+func multiples(of n: Int, in numbers: [Int]) -> [Int] {
+  return numbers.filter { $0 % n == 0 }
+}
+
+multiples(of: 3, in:  [1, 2, 3, 4, 6, 8, 9, 3, 12, 11]) // [3, 6, 9, 3, 12]
+```
+  
+</details>
+
+</br> 
+
 #### Challenge 2
 
 Write a function called `largestValue(in:)` that finds the largest Int in an array of Ints. Use reduce to solve this exercise.
 
 _Sample Input: [4, 7, 1, 9, 6, 5, 6, 9]_  
 _Sample Output: 9_  
+
+<details>
+  <summary>Solution</summary> 
+  
+```swift 
+func largestValue(in numbers: [Int]) -> Int {
+  numbers.reduce(Int.min) { (currentResult, currentValue) -> Int in
+    if currentValue > currentResult {
+      return currentValue
+    }
+    return currentResult
+  }
+}
+
+largestValue(in: [4, 7, 1, 9, 6, 5, 6, 9]) // 9
+```
+  
+</details>
+
+</br>
 
 #### Challenge 3 
 
@@ -180,6 +215,40 @@ let expectedOutputFour = [
 ]
 ```
 
+<details>
+  <summary>Solution</summary> 
+  
+```swift 
+func sortedNamesByLastName(in names: [(firstName: String, lastName: String)]) -> [(firstName: String, lastName: String)] {
+  return names.sorted { $0.lastName < $1.lastName }
+}
+
+let firstAndLastTuples = [
+    ("Johann S.", "Bach"),
+    ("Claudio", "Monteverdi"),
+    ("Duke", "Ellington"),
+    ("W. A.", "Mozart"),
+    ("Nicolai","Rimsky-Korsakov"),
+    ("Scott","Joplin"),
+    ("Josquin","Des Prez")
+]
+
+print(sortedNamesByLastName(in: firstAndLastTuples))
+/*
+ [(firstName: "Johann S.", lastName: "Bach"),
+ (firstName: "Josquin", lastName: "Des Prez"),
+ (firstName: "Duke", lastName: "Ellington"),
+ (firstName: "Scott", lastName: "Joplin"),
+ (firstName: "Claudio", lastName: "Monteverdi"),
+ (firstName: "W. A.", lastName: "Mozart"),
+ (firstName: "Nicolai", lastName: "Rimsky-Korsakov")]
+*/
+```
+  
+</details>
+
+</br>
+
 #### Challenge 4 
 
 Write a function called `sumOfSquaresOfOddNumbers(in:)` that returns the sum of the squares of all the odd numbers from an array of Ints.  Use filter, map and reduce in your function.
@@ -188,3 +257,15 @@ _Sample Input: [1, 2, 3, 4, 5, 6]_
 _Sample Output: 35_  
 
 Explanation: 1 + 9 + 25 = 35
+
+```swift 
+func sumOfSquaresOfOddNumbers(in numbers: [Int]) -> Int {
+  return numbers.filter { $0 % 2 == 1 }
+    .map { $0 * $0 }
+    .reduce(0, +)
+}
+
+sumOfSquaresOfOddNumbers(in:  [1, 2, 3, 4, 5, 6]) // 35
+```
+  
+</details>
