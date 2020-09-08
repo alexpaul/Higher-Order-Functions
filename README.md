@@ -2,7 +2,7 @@
 
 A higher order function is a function that takes another function as an argument or returns a function. 
 
-## Swift built-in higher order functions 
+## A few of Swift built-in higher order functions 
 
 * map 
 * reduce 
