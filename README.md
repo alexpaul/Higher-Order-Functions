@@ -258,6 +258,9 @@ _Sample Output: 35_
 
 Explanation: 1 + 9 + 25 = 35
 
+<details>
+  <summary>Solution</summary>
+
 ```swift 
 func sumOfSquaresOfOddNumbers(in numbers: [Int]) -> Int {
   return numbers.filter { $0 % 2 == 1 }
