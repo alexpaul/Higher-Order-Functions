@@ -143,7 +143,7 @@ print(gradesCompactMapValues) // ["cindy": 96, "michelle": 90]
 
 #### Challenge 1 
 
-Write a function called `multiples(of:in)` that takes in an array of Ints and returns all of the Ints that are a multiple of a given number n.
+Write a function called `multiples(of:in)` that takes in an array of Ints and returns all of the Ints that are a multiple of a given number n. Use filter in your function.
 
 _Sample Input: (3, [1, 2, 3, 4, 6, 8, 9, 3, 12, 11])_   
 _Sample Output: [3, 6, 9, 3, 12]_  
