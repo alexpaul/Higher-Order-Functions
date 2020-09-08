@@ -138,3 +138,53 @@ print(gradesMapValues) // ["paul": nil, "michelle": Optional(90), "cindy": Optio
 let gradesCompactMapValues = gradesDict.compactMapValues { Int($0) }
 print(gradesCompactMapValues) // ["cindy": 96, "michelle": 90]
 ```
+
+## Challenges 
+
+#### Challenge 1 
+
+Write a function called `multiples(of:in)` that takes in an array of Ints and returns all of the Ints that are a multiple of a given number n.
+
+_Sample Input: (3, [1, 2, 3, 4, 6, 8, 9, 3, 12, 11])_
+_Sample Output: [3, 6, 9, 3, 12]_
+
+#### Challenge 2
+
+Write a function called `largestValue(in:)` that finds the largest Int in an array of Ints. Use reduce to solve this exercise.
+
+_Sample Input: [4, 7, 1, 9, 6, 5, 6, 9]_
+_Sample Output: 9_
+
+#### Challenge 3 
+
+Write a function called `sortedNamesByLastName(in:)` that takes in an array of tuples of type (String, String) and returns an array of tuples sorted by last name.
+
+```swift 
+let firstAndLastTuples = [
+    ("Johann S.", "Bach"),
+    ("Claudio", "Monteverdi"),
+    ("Duke", "Ellington"),
+    ("W. A.", "Mozart"),
+    ("Nicolai","Rimsky-Korsakov"),
+    ("Scott","Joplin"),
+    ("Josquin","Des Prez")
+]
+let expectedOutputFour = [
+    ("Johann S.", "Bach"),
+    ("Josquin","Des Prez"),
+    ("Duke", "Ellington"),
+    ("Scott","Joplin"),
+    ("Claudio", "Monteverdi"),
+    ("W. A.", "Mozart"),
+    ("Nicolai","Rimsky-Korsakov")
+]
+```
+
+#### Challenge 4 
+
+Write a function called `sumOfSquaresOfOddNumbers(in:)` that returns the sum of the squares of all the odd numbers from an array of Ints.  Use filter, map and reduce in your function.
+
+_Sample Input: [1, 2, 3, 4, 5, 6]_ 
+_Sample Output: 35_
+
+Explanation: 1 + 9 + 25 = 35
