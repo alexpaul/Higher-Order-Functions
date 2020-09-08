@@ -29,28 +29,6 @@ let transformedValues = values.map { return $0 % 2 == 0 } // (Int) -> [T]
 print(transformedValues) // [false, true, false, true, false]
 ```
 
-#### Writing the `map` funciton 
-
-```swift
-extension Sequence {
-  func myMap<T>(closure: (Self.Element) -> (T)) -> [T] {
-    var resuls = [T]()
-    for value in self {
-      let result = closure(value)
-      resuls.append(result)
-    }
-    return resuls
-  }
-}
-
-let values = [1, 2, 3, 4]
-
-let transformedValues = values.myMap {  $0 * $0 }
-
-print(transformedValues)
-// [1, 4, 9, 16]
-```
-
 ## `reduce`
 
 `reduce` takes an initial value and a closure that combines the previous result and current value to return a combined value. 
@@ -77,27 +55,6 @@ print(transformedValues)
 */
 ```
 
-#### Writing the `reduce` function 
-
-```swift 
-// (initialResult, closure: (previousResult, currentResult) -> (result))
-// (T, closure: (T, T) -> (T)) -> [T]
-
-extension Sequence {
-  func myReduce(_ initialResult: Self.Element, _ closure: (Self.Element, Self.Element) -> (Self.Element)) -> Self.Element {
-    var previousResult = initialResult
-    for element in self {
-      previousResult = closure(previousResult, element)
-    }
-    return previousResult
-  }
-}
-
-let values = [1, 2, 3, 4]
-let result = values.myReduce(1, *)
-
-print(result) // 24
-```
 
 ## `compactMap`
 
@@ -109,29 +66,6 @@ let values = ["true", "1", "0", "false", "false"]
 let transformedValues = values.compactMap { Bool($0) }
 
 print(transformedValues) // [true, false, false]
-```
-
-#### Writing the `compactMap` function 
-
-```swift 
-// (T) -> ElementOfResult? => [T]()
-
-extension Sequence {
-  func myCompactMap<T>(closure: (Self.Element) -> (T?)) -> [T] {
-    var results = [T]()
-    for element in self {
-      if let result = closure(element) {
-        results.append(result)
-      }
-    }
-    return results
-  }
-}
-
-let values = ["1", "three", "42", "2020", "9", "zero"]
-
-let nonNilValues = values.myCompactMap { Int($0) }
-print(nonNilValues) // [1, 42, 2020, 9]
 ```
 
 ## `filter`
@@ -146,26 +80,6 @@ let results = values.filter { $0 > 3 }
 print(results) // [4]
 ```
 
-#### Writing the `filter` function 
-
-```swift 
-extension Sequence {
-  func myFilter(closure: (Self.Element) -> (Bool)) -> [Self.Element] {
-    var results = [Self.Element]()
-    for element in self {
-      if closure(element) {
-        results.append(element)
-      }
-    }
-    return results
-  }
-}
-let values = [1, 2, 3, 4]
-
-let filteredResults = values.myFilter { $0 % 2 == 1 }
-
-print(filteredResults) // [1, 3]
-```
 
 ## `sorted`
 
