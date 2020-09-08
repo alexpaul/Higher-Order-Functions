@@ -60,9 +60,9 @@ print(shorthandReduce) // 15
 ```swift
 let values = ["true", "1", "0", "false", "false"]
 
-let transformedValues = values.compactMap { Bool($0) }
+let booleanValues = values.compactMap { Bool($0) }
 
-print(transformedValues) // [true, false, false]
+print(booleanValues) // [true, false, false]
 ```
 
 ## `filter`
@@ -72,9 +72,9 @@ print(transformedValues) // [true, false, false]
 ```swift 
 let values = [1, 2, 3, 4]
 
-let results = values.filter { $0 > 3 }
+let filteredResults = values.filter { $0 > 2 }
 
-print(results) // [4]
+print(filteredResults) // [3, 4]
 ```
 
 
@@ -90,6 +90,10 @@ let sortedResults = values.sorted { (value1, value2) -> Bool in
 }
 
 print(sortedResults) // [1, 2, 3, 4]
+
+let shorthandSorted = values.sorted { $0 < $1 }
+
+print(shorthandSorted) // [1, 2, 3, 4]
 ```
 
 ## `flatMap`
@@ -113,17 +117,9 @@ print(concatenatedValues) // [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
 #### Example 2 
 
 ```swift 
-let values = [1, 2, 3, 4]
-
-let mappedValues = values.map { int -> [Int] in
-  return [int * int]
-}
-print(mappedValues) // [[1], [4], [9], [16]]
-
-let flattenedValues = values.flatMap { int -> [Int] in
-  return [int * int]
-}
-print(flattenedValues) // [1, 4, 9, 16]
+let cities =  Set([["London","New York"],["New York","Lima"],["Lima","Sao Paulo"]])
+let flattenedCites = cities.flatMap { $0 }
+print(flattenedCites) // ["Lima", "Sao Paulo", "New York", "Lima", "London", "New York"]
 ```
 
 Above instead of the final result of the transformation being an array of arrays, `flapMap` will concatenate the values of this operations and return a single sequence.
@@ -132,9 +128,10 @@ Above instead of the final result of the transformation being an array of arrays
 
 ```swift 
 let gradesDict = ["michelle": "90", "paul": "eighty", "cindy": "96"]
-let gradesMapValues = gradesDict.mapValues { Int($0) }
-let gradesCompactMapValues = gradesDict.compactMapValues { Int($0) }
 
+let gradesMapValues = gradesDict.mapValues { Int($0) }
 print(gradesMapValues) // ["paul": nil, "michelle": Optional(90), "cindy": Optional(96)]
+
+let gradesCompactMapValues = gradesDict.compactMapValues { Int($0) }
 print(gradesCompactMapValues) // ["cindy": 96, "michelle": 90]
 ```
