@@ -32,12 +32,15 @@ let values = [1, 2, 3, 4, 5]
 
 let initialValue = 0
 
-let transformedValues = values.reduce(initialValue) { prevResult, currentValue in
-  print("\(prevResult), \(currentValue)")
-  return prevResult + currentValue // running total
+let combinedValues = values.reduce(initialValue) { (currentResult, currentValue) -> Int in
+  return currentResult + currentValue
 }
 
-print(transformedValues)
+print(combinedValues) // 15
+
+let shorthandReduce = values.reduce(0, +)
+
+print(shorthandReduce) // 15
 
 /*
  0, 1
